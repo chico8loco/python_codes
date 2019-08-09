@@ -5,7 +5,8 @@ def toJadenCase(string):
     '''
     
     final_word = []
-    for word in string.split():
-        final_word.append(word[0].title() + word[1::].lower())
+    
+    for word in string.split():                                 # splits word by empty spaces then iterate on each word
+        final_word.append(word[0].title() + word[1::].lower())  
     
     return ' '.join(final_word)
