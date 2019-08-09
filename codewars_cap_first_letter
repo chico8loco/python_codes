@@ -5,8 +5,12 @@ def toJadenCase(string):
     '''
     
     final_word = []
+    for word in string.split():
+        final_word.append(word[0].title() + word[1::].lower()) 
+        
+        # WHERE:
+        # word[0].title() = capitalize each letter
+        # word[1::].lower() = All the letters after index [0] will be in lower caps
     
-    for word in string.split():                                 # splits word by empty spaces then iterate on each word
-        final_word.append(word[0].title() + word[1::].lower())  
-    
+    #print(final_word)
     return ' '.join(final_word)
