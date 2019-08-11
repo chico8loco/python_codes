@@ -1,0 +1,12 @@
+def get_middle(s):
+    '''
+    A function to return the middle character of a word. If length is even, return the 2 middle characters. The
+    chars should be represented as a string.
+    '''
+    
+    if (len(s)) % 2 != 0:
+        ans = len(s)//2
+        return s[ans]
+    else:
+        even_ans = len(s)//2
+        return s[even_ans-1:even_ans+1]
