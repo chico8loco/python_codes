@@ -1,0 +1,23 @@
+# to make this work
+# a. convert the integer as a string so you can iterate it using for loops
+# b. put those in an empty list
+# c. sort the list in descending oder then convert it back to an integer.
+
+def descending_order(nums):
+    '''
+    a function to type a non-negative integer and return its digits in descending order. 
+    
+    '''
+    
+    int_to_str = str(nums) # convert the integer to a string so we can iterate to it
+    list_int = []
+    ans = []
+    list_to_int = 0
+    
+    for x in int_to_str: # iterate to each item
+        list_int.append(x)  #this works if you are adding integers to a list and not strings
+        #list_int += x  # += works since at this point the value of int_to_str is string. THis would fail if you add integer.
+                      
+    list_int.sort(reverse=True)   
+    ans = ''.join(list_int) # when you use .join, it removes the brackets, spaces and commas
+    return int(ans)  # converts the string to int and returns it
