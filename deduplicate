@@ -1,0 +1,11 @@
+def array_diff(a, b):
+    '''
+        should remove values in list A that are present in List B.
+    '''
+    
+    final_list = []
+    for num in a:
+        if num not in b:
+            final_list.append(num)
+    
+    return final_list
