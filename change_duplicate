@@ -1,0 +1,15 @@
+def duplicate_encode(word):
+    '''
+    convert a string to a new string. Where each character in the new string will show '(' if that char is unique
+    and will show ')' if that char has a duplicate in the same phrase/string
+    '''
+    unique = '('
+    duplicate = ')'
+    final_word = []
+    
+    for x in word.lower():
+        if word.lower().count(x) > 1: # use 2nd lower() for case insensitive; .count() - count x in the list
+            final_word.append(duplicate) # if there is multiple x in the list update the var final_word with ')'
+        else:
+            final_word.append(unique) # if x is uniquem, update var final_word wih '('
+    return ''.join(final_word)
