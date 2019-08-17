@@ -1,0 +1,25 @@
+def solution(s):
+    '''
+    split the strings into pairs of 2 characters. If string contains an odd number of chars then it should replace
+    the missing 2nd char with an underscore
+    '''
+    split_s = []
+    new_list = []
+    
+    #for x in range(0,len(s),2):  # This code gets the 2 charactes but they are not in a list
+    #    split_s = (s[x]+s[x+1])
+    #    print(split_s)
+
+    if len(s) % 2 == 0:
+        return [(s[x:x+2]) for x in range(0,len(s),2)]  # short cut for the code above and they are stored in a list
+                                                        # range(0,len(s),2) - indexing and slicing logic. It starts from 0
+                                                        # upto the length of the given string(len(s)), then skip by 2 chars
+                                                        # (s[x]+s[x+1]) = where X is the index number
+        
+    else:                              # if the given string is odd do this ELSE lpop  
+        for x in range(0,len(s),2):    # split the string into two indexes each element
+            new_list.append(s[x:x+2])  # get the current value of x and its second element in the string and updates the list
+    new_list.pop()                     # .pop() to remove the last element in the list
+    new_list.append(s[-1]+ '_')        # now get the string value again, [-1] starting from the last element in the string
+                                       # add the string '_' and update the list
+    return new_list    
