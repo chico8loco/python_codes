@@ -1,0 +1,33 @@
+import re
+import string
+
+def to_camel_case(text):
+    '''
+    a function that removes dash/underscore and combine the words. The first letter of each word should be capitalized
+    17Aug @ 20:30PM
+    '''
+    split_chars = []
+    ans = ''
+    small = ''
+    
+    
+    ## maintain the  very first letter to its original form (lower or uppercase) and store it in a var
+    if text == '':
+        return ''
+    else:
+        first_char = text[0]
+        
+           
+    ## split the string by '-' and '_'   by using RegEx re.split()
+    for x in re.split('[-_]',text): # '[-_]' , splits the string by dash or underscore. they should be inside a quote then bracket
+        ans += x.title()            # then capitalize all first letter in each word (x)
+    
+        
+    ## replacing the first character of the string(c) if it doesnt match the original letter (lowercase or uppercase)
+    if ans[0] != first_char:
+        small += ans[0].lower() # if the original first letter doesnt match the updated string. it gets replaced by the original one (first_char)
+        return small + ans[1:]  # combine the original first letter and get the value of 'ans '
+    else:
+        return ans
+    
+   
