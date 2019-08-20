@@ -1,0 +1,34 @@
+def duplicate_count(text):
+    '''
+    - should only accept only aplphanumeric chars
+    - return the count of distinct case-insensitive alphanumeric chars that occur more than once
+    20Aug2019
+    '''
+    
+    dup = []
+     
+    if text.isalnum():
+        for x in text:
+            if text.lower().count(x) > 1: #.ower() to convert all strings to lower case, count(x) to count number of times x appeared in var text
+                dup.append(x)
+        print(dup)        
+        return len(set(dup))  # all the duplicates are in the var dup, now the set() function will remove the duplicate in dup then len() count it after deduplication
+    elif (text == '' or text == None):
+        return 0
+    else:
+        return False
+        
+  ##### shorter way of doing the code above####
+  def duplicate_count2(text):
+    dup = []
+     
+    if text.isalnum():
+        return (len(set([x for x in text if text.lower().count(x) > 1])))
+    elif (text == '' or text == None):
+        return 0
+    else:
+        return False
+        
+  ###### shortest from CodeWars######
+  def duplicate_count2(text):
+    return len([c for c in set(s.lower()) if s.lower().count(c)>1])
