@@ -1,0 +1,21 @@
+def tribonacci(signature,n):
+    '''
+    add the first 3 of numbers in a list so the sum will be the 4th element in a list, then add 2-4 element to be the 5th
+    and so on (similar to Fibonacci logic)
+    22Aug2019
+    '''
+    
+    counter = 0
+    new_list = signature
+    ans = new_list
+       
+    new_list.append(sum(signature))  # adds the first 3 digits provided in signature list and store it in new_list
+    
+     
+    while counter < n:
+        counter += 1
+        if len(ans) < n:
+            new_list.append(sum(ans[-3:])) # adds the numbers from -3 to the end if var new_list 
+            #counter += 1
+    
+    return ans[:n]
