@@ -1,0 +1,11 @@
+def create_phone_number(n):
+    '''
+    a function that accepts an array of integers (0-9) that returns a str of those numbers in the form of a phone number
+    25Aug2019
+    '''
+    str_list = ''.join([str(i) for i in n])  #convert the integers in a list to a string
+     
+    set1 = str_list[0:3]
+    set2 = str_list[3:6]
+    set3 = str_list[6:len(n)]
+    return '({})'.format(set1) + ' {}'.format(set2) + '-{}'.format(set3)
