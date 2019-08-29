@@ -1,0 +1,47 @@
+def zeros(n):
+    '''
+    count the number of trailing zeros in a factorial of a given number
+    27Aug2019
+    '''
+    counter = 1
+    ans = 0
+    factorial_lst = []
+    factorial_int = []
+    zero = []
+    
+
+    # to store the first product in ans
+    if n == 0:
+        return False
+    else:
+        ans = n * (n-counter)  
+    
+    # performs the factorial computation
+    for x in range(n):     
+        if counter < n-1: # subtract 1 from the given range(n) to compensate for the 1st stored value/product in ans
+            counter += 1
+            #ans = ans * (n-counter)  
+            ans *= (n-counter)
+
+
+    # convert the int to str so the numbers can be separated and stored in a list
+    factorial_lst = [x for x in str(ans)]
+    
+    # once separated and stored in a list convert each element back to integer
+    #for x in factorial_lst:
+    #    factorial_int.append(int(x))
+    factorial_int = [int(x) for x in factorial_lst] 
+    
+    # reverse the list to it will process the last element in factorial_int and find zero
+    #this code will check the number of zero then would break once the integer is no longer zero
+    for x in reversed(factorial_int):
+        if x == 0:                      
+            zero.append(x)        #if zero is found add that element in the var zero
+        else:
+            break                 
+  
+    return len(zero)              # count the number of zeroes in var zero
+    
+    # coewards compiler times out with the error below. But this code passes the basic test.
+    # STDERR
+    # Execution Timed Out (12000 ms)
