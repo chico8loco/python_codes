@@ -1,0 +1,29 @@
+def title_case(title, *minor_words):
+    '''
+    a function to capitalize the first letter of each word except those defined as minor_words. And every first letter of the sentence is capital
+    even if they are included in minor_words.
+    29AUg2019
+    '''
+    
+    final_word = []
+    minor_words_lst = []
+    
+    #to handle if any of the arguments are empty '' or None
+    if (title == '' or title == None) or (minor_words == '' or minor_words == None ) or None:
+        return '' 
+   
+    #convert minor_words from args to a list
+    for x in minor_words:
+        for y in x.split():
+            minor_words_lst.append(y.lower())
+
+    
+    #search the words from title in the minor_words_lst
+    for a in title.lower().split():
+        if a in minor_words_lst:
+            final_word.append(a)
+        else:
+            final_word.append(a.title())
+    
+    final_word = ' '.join(final_word)
+    return final_word[0].title() + final_word[1:]
