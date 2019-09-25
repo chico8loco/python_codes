@@ -1,0 +1,29 @@
+import re
+from urllib.parse import urlparse #this module allows python to separate the url
+
+'''
+    a function that extract just the domain name from a given URL and returns it as a string
+    2Sept2019
+'''
+
+def domain_name(url):
+    print(url)
+    
+    if 'http' not in url: # doesnt start http or starts with WWW
+        ans = 'http://' + url #adds http/s if it doesnt have it
+        con_ans = urlparse(ans)[1] #separates the http:// against the www.<domain>
+        
+        
+        for x in con_ans.split('.'):
+            if 'www' in x:
+                continue
+            else:
+                return x
+            
+    else: # for domains that start with http or http://www
+        ans = urlparse(url)[1]
+        for x in ans.split('.'):
+            if 'www' in x:
+                continue
+            else:
+                return x
