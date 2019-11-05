@@ -1,9 +1,9 @@
 def tower_builder(n_floor):
     '''
     this script build a tower made of asterisk. The height of the tower is based on the number (n_floors) provided
-    while the number of asterisks increment by odd number per level (e.g 1,3,5,7. etc)
+    while the number of asterisks increase by odd number per level (e.g 1,3,5,7. etc)
     '''
-
+    #print(n_floor)
     a = '*'
     stars = 0
     c = a + '*'
@@ -17,10 +17,8 @@ def tower_builder(n_floor):
     
     for x in num:
         stars = a
-        a += str(c)
+        a += str(c) # used to increment the asterisk by 2 in var a
         width_calc = stars.center(width_list)
         result.append(width_calc)
     return result
-    
-    
     
