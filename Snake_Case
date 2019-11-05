@@ -1,0 +1,22 @@
+def to_underscore(StringHere):
+    '''
+    takes CamelCase string and returns the string in snake_case notation. 
+    Lowercase characters can be numbers. If method gets number, it should return string.
+    '''
+    
+    new_char = ''
+    count = 0
+
+     
+    # get the 2nd char that is upper case?
+    for char in str(StringHere):
+               
+        if char.isupper() == True and count == 0:
+            new_char += char.lower()
+            count = count + 1
+        elif char.isupper() == True and count > 0: #gets the chars in caps and prefix with _
+                new_char += '_' + char.lower()
+        else:
+            new_char += char
+            
+    return new_char
